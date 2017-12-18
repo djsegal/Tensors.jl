@@ -112,20 +112,9 @@ end
 # @inline          Tensor{order, dim, T, M}(data::Union{AbstractArray, Tuple, Function})  where {order, dim, T, M} = Tensor{order, dim, T}(data)
 # @inline SymmetricTensor{order, dim, T, M}(data::Union{AbstractArray, Tuple, Function})  where {order, dim, T, M} = SymmetricTensor{order, dim, T}(data)
 
-include("indexing.jl")
-include("utilities.jl")
-include("tensor_ops_errors.jl")
-include("automatic_differentiation.jl")
-include("promotion_conversion.jl")
-include("constructors.jl")
-include("basic_operations.jl")
-include("tensor_products.jl")
-include("transpose.jl")
-include("symmetric.jl")
-include("math_ops.jl")
-include("eigen.jl")
-include("special_ops.jl")
-include("simd.jl")
-include("voigt.jl")
+
+using Boot
+
+Boot.include_folder(Tensors, @__FILE__)
 
 end # module
